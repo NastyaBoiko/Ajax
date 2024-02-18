@@ -10,7 +10,7 @@
         $(function(){
             $("form").on("submit", function(event) {
                 event.preventDefault();
-                $.post("/form.php", $( this ).serialize(), function (data) {
+                $.post("/JQuery1/form.php", $( this ).serialize(), function (data) {
                     $('#result').html(data.name);
                 }, 'json');
             })
