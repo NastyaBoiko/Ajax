@@ -12,7 +12,6 @@
                 event.preventDefault();
                 $.post("/form.php", $( this ).serialize(), function (data) {
                     $('#result').html(data.name);
-
                 }, 'json');
             })
         });
