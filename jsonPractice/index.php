@@ -11,13 +11,13 @@
                 $("select[name='city']").empty();
 
                 $.get("/jsonPractice/countryCheck.php", {country: $("select[name='country']").val()}, function(data) {
-                    data = JSON.parse(data);
-                    console.log(data);
+                    // data = JSON.parse(data);
+                    // console.log(data);
                     for (let id in data) {
                         // console.log(data[id]);
                         $("select[name='city']").append($(`<option value=${id}>${data[id]}</option>`))
                     }
-                })
+                }, 'json')
             })
         });
     </script>
