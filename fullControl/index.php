@@ -27,10 +27,34 @@
                     success: funcSuccess
                 });
             })
+
+            $("#done").on("click", function () {
+                let admin = "Admin";
+                $.ajax ({
+                    url: "/fullControl/check.php",
+                    type: "POST",
+                    data: ({
+                        name: $("#name").val()
+                    }),
+                    dataType: "html",
+                    beforeSend: function () {
+                        $("#information").text("Ожидание данных...");
+                    },
+                    success: function (data) {
+                        if (data == "Fail") {
+                            alert('Имя занято');
+                        } else {
+                            $("#information").text(data);
+                        }
+                    }
+                });
+            })
         })
     </script>
 </head>
 <body>
+    <input type="text" name="" id="name" placeholder="Введите имя">
+    <input type="button" name="" id="done" value="Готово">
     <p id="load" style="cursor: pointer;">Загрузить данные</p>
     <div id="information"></div>
 </body>
